@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Titanic Survival Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Titanic Explorer</p>
+          <h1>Survival Prediction Dashboard</h1>
+        </div>
+        <div class="status-pill">ML Risk Model</div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h2>Passenger Input</h2>
+            <span class="panel-tag">Live prediction</span>
+          </div>
+
+          <form id="predictionForm">
+            <div class="field-grid">
+              <label>
+                <span>Passenger Class</span>
+                <select id="passengerClass">
+                  <option value="1">1st Class</option>
+                  <option value="2">2nd Class</option>
+                  <option value="3" selected>3rd Class</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Age</span>
+                <input id="age" type="number" min="0" max="100" value="30" />
+              </label>
+
+              <label>
+                <span>Siblings/Spouses</span>
+                <input id="siblings" type="number" min="0" max="20" value="0" />
+              </label>
+
+              <label>
+                <span>Parents/Children</span>
+                <input id="parentsChildren" type="number" min="0" max="20" value="0" />
+              </label>
+
+              <label>
+                <span>Fare</span>
+                <input id="fare" type="number" min="0" step="0.01" value="15.5" />
+              </label>
+
+              <label>
+                <span>Family Size</span>
+                <input id="familySize" type="number" min="0" max="20" value="1" />
+              </label>
+
+              <label class="checkbox-wrap">
+                <input id="isAlone" type="checkbox" />
+                <span>Is alone</span>
+              </label>
+
+              <label>
+                <span>Gender</span>
+                <select id="gender">
+                  <option value="female">Female</option>
+                  <option value="male" selected>Male</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Embarked</span>
+                <select id="embarked">
+                  <option value="C">Cherbourg</option>
+                  <option value="Q">Queenstown</option>
+                  <option value="S" selected>Southampton</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" class="predict-btn">Predict</button>
+          </form>
+
+          <div id="resultBox" class="result-box neutral" aria-live="polite">
+            <span id="resultText">Awaiting prediction</span>
+          </div>
+        </section>
+
+        <aside class="panel insight-panel">
+          <div class="stats-grid">
+            <div class="stat-card accent">
+              <p>Survival Rate</p>
+              <h3>38%</h3>
+            </div>
+            <div class="stat-card">
+              <p>Avg Fare</p>
+              <h3>$32.20</h3>
+            </div>
+            <div class="stat-card">
+              <p>Family Size</p>
+              <h3>2.7</h3>
+            </div>
+            <div class="stat-card">
+              <p>First Class</p>
+              <h3>24%</h3>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3>Passenger Class</h3>
+            <div class="chart-row">
+              <span>1st</span>
+              <div class="bar-track"><div class="bar-fill class-1" style="width: 62%"></div></div>
+              <strong>62%</strong>
+            </div>
+            <div class="chart-row">
+              <span>2nd</span>
+              <div class="bar-track"><div class="bar-fill class-2" style="width: 47%"></div></div>
+              <strong>47%</strong>
+            </div>
+            <div class="chart-row">
+              <span>3rd</span>
+              <div class="bar-track"><div class="bar-fill class-3" style="width: 74%"></div></div>
+              <strong>74%</strong>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3>Gender Split</h3>
+            <div class="chart-row">
+              <span>Female</span>
+              <div class="bar-track"><div class="bar-fill female" style="width: 68%"></div></div>
+              <strong>68%</strong>
+            </div>
+            <div class="chart-row">
+              <span>Male</span>
+              <div class="bar-track"><div class="bar-fill male" style="width: 81%"></div></div>
+              <strong>81%</strong>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
